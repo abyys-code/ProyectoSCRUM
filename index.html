@@ -37,22 +37,54 @@
                 <li class="header__nav-item">
                     <a href="index.html" class="header__nav-link"  style="color: #f80;">Home</a>
                 </li>
-
                 <li class="header__nav-item">
-                    <a href="pages/asistencia.html" class="header__nav-link">Toma de Asistencia</a>
+                    <a href="pages/asistencia.html" class="header__nav-link">Check-in Estudiantil</a>
                 </li>
-
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">To-do List</a>
                 </li>
-
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">Grades</a>
                 </li>
-
-                <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Login</a>
+                <li class="header__nav-item" id="acceso-menu" style="position:relative;">
+                    <a href="#" class="header__nav-link" id="acceso-link">Acceso</a>
+                    <div id="acceso-dropdown" style="display:none;position:absolute;right:0;top:100%;background:#fff;color:#222;min-width:150px;box-shadow:0 2px 8px #0002;border-radius:6px;z-index:100;">
+                        <div style="padding:10px 16px;border-bottom:1px solid #eee;">
+                            <span id="acceso-usuario" style="font-weight:bold;">admin</span>
+                        </div>
+                        <button id="cerrarSesionBtn" style="width:100%;background:none;border:none;padding:10px 16px;text-align:left;cursor:pointer;color:#d32f2f;">Cerrar sesión</button>
+                    </div>
                 </li>
+                <li class="header__nav-item" id="login-menu">
+                    <a href="pages/login.html" class="header__nav-link">Login</a>
+                </li>
+                <script>
+                // Mostrar menú de usuario solo si está logueado
+                document.addEventListener('DOMContentLoaded', function() {
+                    const usuario = localStorage.getItem('usuario_logueado');
+                    const accesoMenu = document.getElementById('acceso-menu');
+                    const loginMenu = document.getElementById('login-menu');
+                    if (usuario) {
+                        accesoMenu.style.display = '';
+                        loginMenu.style.display = 'none';
+                        document.getElementById('acceso-usuario').textContent = usuario;
+                    } else {
+                        accesoMenu.style.display = 'none';
+                        loginMenu.style.display = '';
+                    }
+                    // Dropdown
+                    const accesoLink = document.getElementById('acceso-link');
+                    const dropdown = document.getElementById('acceso-dropdown');
+                    accesoLink.addEventListener('mouseenter', () => dropdown.style.display = 'block');
+                    accesoMenu.addEventListener('mouseleave', () => dropdown.style.display = 'none');
+                    // Cerrar sesión
+                    const cerrarBtn = document.getElementById('cerrarSesionBtn');
+                    cerrarBtn.addEventListener('click', function() {
+                        localStorage.removeItem('usuario_logueado');
+                        window.location.href = 'pages/login.html';
+                    });
+                });
+                </script>
             </ul>
         </nav>
 

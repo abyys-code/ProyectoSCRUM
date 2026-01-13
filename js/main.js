@@ -49,7 +49,7 @@ function nombreValido(nombre) {
     return true;
 }
 
-// Mostrar mensaje de error debajo del input nombre
+// Mostrar mensaje de error debajo del nombre
 function mostrarErrorNombre(msg) {
     let error = document.getElementById('error-nombre');
     if (!error) {
@@ -82,7 +82,7 @@ form.addEventListener('submit', (e) => {
         mostrarErrorNombre('Por favor ingresa un nombre válido (sin repeticiones, solo letras, máx. 40 caracteres).');
         return;
     }
-    // Validar fecha: solo permitir la fecha del día actual
+    // Validar fecha: solo permitira la fecha del día actual
     const hoy = new Date();
     const yyyy = hoy.getFullYear();
     const mm = String(hoy.getMonth() + 1).padStart(2, '0');
@@ -92,7 +92,7 @@ form.addEventListener('submit', (e) => {
         mostrarErrorNombre('La fecha ingresada no coincide con la fecha actual.');
         return;
     }
-    // Validar duplicado: mismo nombre y fecha
+    // Validar duplicado del mismo nombre y fecha
     const yaRegistrado = registros.some(r => r.nombre.trim().toLowerCase() === nombre.trim().toLowerCase() && r.fecha === fecha);
     if (yaRegistrado) {
         mostrarErrorNombre('Este estudiante ya fue registrado hoy. No se permiten duplicados el mismo día.');
