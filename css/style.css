@@ -867,7 +867,6 @@ input[class="submit"]{
     }
 }
 
-
 @media screen and (max-width:403px) {
     .card-foot{
         grid-template-areas: 
@@ -889,4 +888,44 @@ input[class="submit"]{
         grid-area: notificaciones;
     }
 
+}
+
+/* Extra pequeño hasta 350px */
+@media screen and (max-width:350px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h1::after {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .main--subtitle {
+        font-size: 1.4rem;
+        width: 160px;
+        text-align: center;
+    }
+
+    .about__mision, .about__vision {
+        padding: 15px 8px;
+    }
+
+    .contact__form {
+        padding: 15px 10px;
+        gap: 10px;
+    }
+
+    .foot-input-email, .foot-input-submit {
+        width: 100%;
+    }
+
+    .card-foot {
+        grid-template-areas: 
+            "enlaces"
+            "social"
+            "notificaciones";
+        gap: 15px;
+        padding: 15px;
+    }
 }
