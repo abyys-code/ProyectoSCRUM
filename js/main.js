@@ -92,6 +92,12 @@ form.addEventListener('submit', (e) => {
         mostrarErrorNombre('La fecha ingresada no coincide con la fecha actual.');
         return;
     }
+    // Validar duplicado: mismo nombre y fecha
+    const yaRegistrado = registros.some(r => r.nombre.trim().toLowerCase() === nombre.trim().toLowerCase() && r.fecha === fecha);
+    if (yaRegistrado) {
+        mostrarErrorNombre('Este estudiante ya fue registrado hoy. No se permiten duplicados el mismo día.');
+        return;
+    }
     limpiarErrorNombre();
     const nuevoRegistro = {
         id: Date.now(),
