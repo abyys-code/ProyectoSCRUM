@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprint 1: Registro de Asistencia</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/logo_universidad.png" type="image/png">
+    <link rel="stylesheet" href="../css/asistencia.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/asistencia.css">
     <script defer src="../js/main.js"></script>
@@ -29,13 +30,13 @@
                 <a href="../index.html" class="header__nav-link">Principal</a>
             </li>
             <li class="header__nav-item">
-                <a href="about.html" class="header__nav-link" style="color: #f80;">Asistencia</a>
+                <a href="asistencia.html" class="header__nav-link" style="color: #f80;">Asistencia</a>
             </li>
             <li class="header__nav-item">
                 <a href="#" class="header__nav-link">Docente</a>
             </li>
             <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Acerca de</a>
+                <a href="../index.html#about" class="header__nav-link">Acerca de</a>
             </li>
             <li class="header__nav-item" id="acceso-menu" style="position:relative;">
                 <a href="#" class="header__nav-link" id="acceso-link">Acceso</a>
@@ -67,18 +68,18 @@
                     <h2 class="text-xl font-semibold mb-4 text-indigo-700">Nuevo Registro</h2>
                     <form id="asistenciaForm" class="space-y-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700">Nombre del Estudiante</label>
+                            <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre del Estudiante</label>
                             <input type="text" id="nombre" required
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 placeholder="Ej. Juan Pérez">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700">Fecha</label>
+                            <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha</label>
                             <input type="date" id="fecha" required
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-indigo-500 focus:border-indigo-500">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700">Estado</label>
+                            <label for="estado" class="block text-sm font-medium text-gray-700">Estado</label>
                             <select id="estado" required
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-indigo-500 focus:border-indigo-500">
                                 <option value="Presente">Presente</option>
@@ -102,7 +103,7 @@
                         
                         <!-- Filtro -->
                         <div class="flex items-center gap-2">
-                            <span class="text-sm text-gray-500">Filtrar por:</span>
+                            <label for="filtroEstado" class="text-sm text-gray-500">Filtrar por:</label>
                             <select id="filtroEstado" class="border border-gray-300 rounded-md p-1 text-sm">
                                 <option value="Todos">Todos</option>
                                 <option value="Presente">Presente</option>

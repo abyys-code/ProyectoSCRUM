@@ -25,6 +25,10 @@ body {
     overflow: hidden;
 }
 
+.header span{
+    font-size: 0;
+}
+
 .header::after {
     content: "";
     position: absolute;

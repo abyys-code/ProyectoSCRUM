@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Proyecto SCRUM</title>
+    <title>Login</title>
+    <link rel="icon" href="../images/logo_universidad.png" type="image/png">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -17,11 +18,11 @@
         <img src="../images/logo_universidad.png" alt="Logo de Universidad" class="mb-6 w-32 h-32 object-contain">
         <form id="loginForm" class="space-y-4 w-full">
             <div>
-                <label class="block text-sm font-medium text-gray-700">Usuario</label>
+                <label for="usuario" class="block text-sm font-medium text-gray-700">Usuario</label>
                 <input type="text" id="usuario" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700">Contraseña</label>
+                <label for="contrasena" class="block text-sm font-medium text-gray-700">Contraseña</label>
                 <input type="password" id="contrasena" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
             <div id="login-error" class="text-red-600 text-sm"></div>
