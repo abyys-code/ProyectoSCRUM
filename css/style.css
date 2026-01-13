@@ -247,31 +247,31 @@ h2 {
 /*----ABOUT ENDS----*/
 
 /*----CONTACT SECTION----*/
-.contact__form {
+.contact__form{
     max-width: 100%;
-    min-height: auto;
-    width: 100%;
+    min-height: 100svh;
+    width:700px;
     display: grid;
-    grid-template-areas:
+    grid-template-areas: 
         "name last-name"
         "email asunto"
         "reference reference"
         "message message"
         "terms submit";
-    gap: 30px;
+    gap: 40px;
     padding: 40px;
     background: url("../images/Portada.jpg") center / cover no-repeat;
-    border-radius: 10px;
+    border-radius: 8px;
     position: relative;
+    border-radius: 10px;
     box-shadow: 0 0 20px #0003;
-    margin-bottom: 40px;
 }
 
-.contact__form:hover {
+.contact__form:hover{
     animation: move-bg 7s linear infinite alternate both;
 }
 
-.contact__form::after {
+.contact__form::after{
     content: "";
     position: absolute;
     inset: 0;
@@ -282,7 +282,7 @@ h2 {
     border-radius: 10px;
 }
 
-.form__input-container {
+.form__input-container{
     width: 100%;
     align-self: center;
     justify-self: center;
@@ -291,141 +291,111 @@ h2 {
     overflow: hidden;
 }
 
-.form__input-container input,
+.form__input-container input, 
 .form__input-container select,
-.form__input-container textarea {
+.form__input-container textarea{
     width: 100%;
-    padding: 12px 15px;
+    padding: 10px 15px;
     border-radius: 8px;
     border: 2px solid #fff;
     background: transparent;
     color: #fff;
     position: relative;
-    font-size: 1rem;
 }
 
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
+input:focus-visible, select:focus-visible, textarea:focus-visible{
     outline: none;
     border-color: #f80;
 }
 
-.form__input-container option {
+.form__input-container option{
     background-color: #2228;
     color: #fff;
 }
 
-input::placeholder,
-textarea::placeholder {
+input::placeholder{
     font-family: sans-serif;
     letter-spacing: 1px;
-    color: #ccc;
+    color: #fff;
 }
 
-.form__input-container label {
+.form__input-container label{
     line-height: 2;
     letter-spacing: 1px;
     color: #fff;
     font-weight: 600;
-    display: block;
-    margin-bottom: 5px;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"]{
     width: max-content;
-    margin-left: 10px;
-    transform: scale(1.2);
 }
 
-textarea {
-    resize: vertical;
-    min-height: 100px;
-    max-height: 200px;
+textarea{
+    resize: none;
+    height: 100px;
 }
 
-.container--name {
+.container--name{
     grid-area: name;
 }
 
-.container--lastname {
+.container--lastname{
     grid-area: last-name;
 }
 
-.container--email {
+.container--email{
     grid-area: email;
 }
 
-.container--asunto {
+.container--asunto{
     grid-area: asunto;
 }
 
-.container--reference {
+.container--reference{
     grid-area: reference;
 }
 
-.container--message {
+.container--message{
     grid-area: message;
 }
 
-.container--terms {
+.container--terms{
     grid-area: terms;
-    display: flex;
-    align-items: center;
 }
 
-.container--submit {
+.container--submit{
     grid-area: submit;
 }
 
-.container--terms .label-terms {
+.container--terms .label-terms{
     letter-spacing: 1px;
     font-size: 15px;
     font-weight: 100;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
-.link-terms {
-    color: #fff;
-    text-decoration: underline;
-    margin: 0 5px;
+.link-terms{
+    color: #000;
 }
 
-.link-terms:hover {
-    color: #f80;
-}
-
-.submit:hover,
-.label-terms:hover,
-input[type="checkbox"] {
+.submit:hover , .label-terms:hover , input[type="checkbox"]{
     cursor: pointer;
 }
 
-input[class="submit"] {
+
+input[class="submit"]{
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     background: transparent;
     color: white;
     border: 2px solid white;
     border-radius: 8px;
     position: relative;
     z-index: 2;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-input[class="submit"]:hover {
-    background-color: #f80;
-    border-color: #f80;
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 136, 0, 0.3);
-}
 
 .container--submit::before {
     content: "";
@@ -434,12 +404,25 @@ input[class="submit"]:hover {
     inset: 0;
     background: linear-gradient(#f80 00) left / 0 100% no-repeat;
     transition: background-size 1s ease;
-    z-index: 1;
 }
 
 .container--submit:hover::before {
     background-size: 100% 100%;
 }
+
+
+
+/*----ANIMACIONES----*/
+@keyframes animate-border{
+    from{
+        background-size: 0 100%;
+    }
+
+    to{
+        background-size: 100% 100%;
+    }
+}
+
 
 /*----ANIMACIONES----*/
 @keyframes animate-border {
