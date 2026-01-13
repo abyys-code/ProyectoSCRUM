@@ -2,16 +2,17 @@
 * , ::before , ::after{
     box-sizing: border-box;
     scroll-behavior: smooth;
-}
-
-ul{
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 body{
     margin: 0;
     font-family: sans-serif;
+    background-color: #eee8;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 /*----HEADER SECITON----*/
@@ -52,28 +53,31 @@ body{
     transform: translateY(-50%);
     margin-left: 30px;
     padding: 20px;
-    width: max-content;
+    width: 70vw;
 }
 
 h1{
     display: inline-block;
     margin: 0;
     font-size: 3rem;
-    width: 500px;
+    width: 100%;
     letter-spacing: 3px;
     text-wrap: balance;
     position: relative;
-    transition: color 0.5s  ;
+    transition: color 0.9s ;
 }
 
 h1::after{
     display: inline-block;
-    content: "We make the difference";
+    content: "En ADFJ University, tu talento se convierte en éxito. Prepárate para dejar huella en el mundo.";
     letter-spacing: 2px;
     font-family: sans-serif;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
+    font-weight: 300;
     color: #fffa;
-    transition: color 0.3s ;
+    transition: color 0.9s ;
+    overflow-wrap: break-word;
+    margin-top: 5px;
 }
 
 h1:hover{
@@ -136,10 +140,70 @@ h1:hover::after{
     height: 2px;
 }
 
-
 .header__nav-link:hover::before{
     animation: animate-border 0.5s ease infinite alternate both;
 }
+/*----HEADER ENDS----*/
+
+/*----ABOUT SECTION----*/
+.main{
+    width: 75%;
+    margin: auto;
+    min-height: 100vh;
+    border: px solid #000;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.main--subtitle{
+    font-weight: 100;
+    font-size: 2rem;
+    padding: 15px 0;
+    width: 250px; 
+    border-bottom: 1px solid currentColor;
+    text-transform: uppercase;
+}
+
+h2{
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
+
+.about__container{
+    display: flex;
+    gap: 45px;
+    background-color: transparent;
+}
+
+.about__mision , .about__vision{
+    border: px solid #f00;
+    width: 50%;
+    border-radius: 6px ;
+    background-color: #fff;
+    box-shadow: 0 0 20px #0002;
+    text-align: center;
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    flex-grow: 1;
+}
+
+.text-about{
+    padding: 15px;
+}
+/*----ABOUT ENDS----*/
+
 
 /*----ANIMACIONES----*/
 @keyframes animate-border{

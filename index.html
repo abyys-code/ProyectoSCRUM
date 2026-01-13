@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="Sistema de Registro de Alumnos">
+    <meta name="description" content="Página Oficial de ADFJ Academy">
     <meta name="robots" content="max-image-preview:large">
     <meta name="author" content="Grupo 2">
     
@@ -12,9 +12,10 @@
     <meta property="og:description" content="Siste de Registro de Alumnos">
     <meta property="og:image" content="">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Universidad">
+    <meta property="og:site_name" content="ADFJ Academy">
+    <link rel="icon" href="images/logo_universidad.png" type="image/png">
     
-    <title>Registro Estudiantil</title>
+    <title>ADFJ University</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -35,34 +36,134 @@
 
             <ul class="header__nav-list">
                 <li class="header__nav-item">
-                    <a href="index.html" class="header__nav-link"  style="color: #f80;">Home</a>
+                    <a href="index.html" class="header__nav-link"  style="color: #f80;">Principal</a>
                 </li>
 
                 <li class="header__nav-item">
-                    <a href="pages/asistencia.html" class="header__nav-link">Toma de Asistencia</a>
+                    <a href="pages/asistencia.html" class="header__nav-link">Asistencia</a>
                 </li>
 
                 <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">To-do List</a>
+                    <a href="#" class="header__nav-link">Docente</a>
                 </li>
 
                 <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Grades</a>
+                    <a href="#" class="header__nav-link">Acerca de</a>
                 </li>
 
                 <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Login</a>
+                    <a href="#" class="header__nav-link">Iniciar Sesión</a>
                 </li>
             </ul>
         </nav>
 
         <div class="header__title-container">
             <h1 class="header__title">
-                ADFJ ACADEMY
+                ADFJ University
             </h1>
         </div>
 
     </header>
     <!------HEADER ENDS------>
+
+    <!------MAIN SECITON------>
+    <main class="main">
+        <section class="section about__section" id="about">
+            <h2 class="main--subtitle about__title">Acerca de</h2>
+            <div class="about__container">
+                <div class="about__mision">
+                    <h2>Misión</h2>
+                    <p class="text-about text-mision">
+                        Formar profesionales de calidad innovadores y comprometidos con el desarrollo tecnológico.
+                    </p>
+                </div>
+
+                <div class="about__vision">
+                    <h2>Visión</h2>
+                    <p class="text-about text-vision">
+                        Liderar la educación tecnológica en Latinoamérica siendo un referente de excelencia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section contact__section" id="contact">
+            <h2 class="main--subtitle contact__title">
+                Contacto
+            </h2>
+            <form method="post">
+                <div class="form__imput-container container--name">
+                    <label for="name"> Nombre
+                        <input 
+                        type="text"
+                        class="input-name"
+                        placeholder="Jhon"
+                        id="name"
+                        >
+                    </label>
+                    
+                </div>
+
+                <div class="form__imput-container container--lastname">
+                    <label for="apellido"> Apellidos
+                        <input 
+                        type="text"
+                        class="input-name"
+                        placeholder="Doe"
+                        id="apellido"
+                        >
+                    </label>
+                </div>
+
+                <div class="form__imput-container container--email">
+                    <label > Correo electrónico
+                        <input 
+                        type="email"
+                        class="input-name"
+                        placeholder="alguien@gmail.com"
+                        >
+                    </label>
+                </div>
+
+                <div class="form__imput-container container--asunto">
+                    <label>Asunto
+                        <select name="asunto" id="asunto" class="input-asunto">
+                            <option value="consulta">Consulta</option>
+                            <option value="queja">Queja</option>
+                            <option value="interes-estudio">Interés de estudio</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form__imput-container container--reference">
+                    <label>Referencia de contacto
+                        <input type="text" list="reference-list" placeholder="Refetencia de contacto" class="input-reference">
+                        <datalist id="reference-list">
+                            <option value="Redes sociales">Facebook / TikTok / Instagram / WhatsApp</option>
+                            <option value="Conocido (s)">Familiar / Amigo (a)</option>
+                            <option value="Otros">Otros medios</option>
+                        </datalist>
+                    </label>
+                </div>
+
+                <div class="form__imput-container container--message">
+                    <label>Mensaje
+                        <textarea name="mensaje" id="mensaje" ></textarea>
+                    </label>
+                </div>
+
+                <div class="form__imput-container container--terms">
+                    <label>Acepto los <a href="#">términos y condiciones</a>
+                        <input type="checkbox">
+                    </label>
+                </div>
+
+                <div class="form__imput-container container--submit">
+                    <input type="submit" value="Enviar">
+                </div>
+            </form>
+
+        </section>
+    </main>
 </body>
 </html>
