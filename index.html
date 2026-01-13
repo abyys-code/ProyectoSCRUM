@@ -21,22 +21,22 @@
 <body>
     <!------HEADER SECTION------>
     <header class="header">
-        <div class="header__image-container">
-            <img 
-                src="images/Portada.jpg" 
-                alt="Imagen de la Universidad" 
-                class="header__img"
-            >
-        </div>
-
         <nav class="header__navbar">
             <div class="header__logo-container">
-                <img src="images/logo_universidad.png" alt="Logo de Universidd" class="header__logo">
+                <img src="images/logo_universidad.png" alt="Logo de Universidad" class="header__logo">
             </div>
 
-            <ul class="header__nav-list">
+            <!-- Checkbox para menú hamburguesa -->
+            <input type="checkbox" id="menu-toggle" class="header__menu-checkbox">
+            <label for="menu-toggle" class="header__menu-button">
+                <span class="header__menu-icon"></span>
+                <span class="header__menu-icon"></span>
+                <span class="header__menu-icon"></span>
+            </label>
+
+            <ul class="header__nav-list" id="navList">
                 <li class="header__nav-item">
-                    <a href="index.html" class="header__nav-link"  style="color: #f80;">Principal</a>
+                    <a href="index.html" class="header__nav-link link-home">Principal</a>
                 </li>
 
                 <li class="header__nav-item">
@@ -48,7 +48,11 @@
                 </li>
 
                 <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Acerca de</a>
+                    <a href="#about" class="header__nav-link">Acerca de</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="#contact" class="header__nav-link">Contacto</a>
                 </li>
 
                 <li class="header__nav-item">
@@ -66,8 +70,9 @@
     </header>
     <!------HEADER ENDS------>
 
-    <!------MAIN SECITON------>
+    <!------MAIN SECTION------>
     <main class="main">
+        <!------ABOUT SECTION------>
         <section class="section about__section" id="about">
             <h2 class="main--subtitle about__title">Acerca de</h2>
             <div class="about__container">
@@ -87,47 +92,50 @@
             </div>
         </section>
 
+        <!------CONTACT SECTION------>
         <section class="section contact__section" id="contact">
             <h2 class="main--subtitle contact__title">
                 Contacto
             </h2>
-            <form method="post">
-                <div class="form__imput-container container--name">
+            <form method="post" class="contact__form" action="">
+                <div class="form__input-container container--name">
                     <label for="name"> Nombre
                         <input 
                         type="text"
                         class="input-name"
                         placeholder="Jhon"
                         id="name"
+                        required
                         >
                     </label>
-                    
                 </div>
 
-                <div class="form__imput-container container--lastname">
+                <div class="form__input-container container--lastname">
                     <label for="apellido"> Apellidos
                         <input 
                         type="text"
                         class="input-name"
                         placeholder="Doe"
                         id="apellido"
+                        required
                         >
                     </label>
                 </div>
 
-                <div class="form__imput-container container--email">
-                    <label > Correo electrónico
+                <div class="form__input-container container--email">
+                    <label> Correo electrónico
                         <input 
                         type="email"
                         class="input-name"
                         placeholder="alguien@gmail.com"
+                        required
                         >
                     </label>
                 </div>
 
-                <div class="form__imput-container container--asunto">
+                <div class="form__input-container container--asunto">
                     <label>Asunto
-                        <select name="asunto" id="asunto" class="input-asunto">
+                        <select name="asunto" id="asunto" class="input-asunto" required>
                             <option value="consulta">Consulta</option>
                             <option value="queja">Queja</option>
                             <option value="interes-estudio">Interés de estudio</option>
@@ -135,9 +143,9 @@
                     </label>
                 </div>
 
-                <div class="form__imput-container container--reference">
+                <div class="form__input-container container--reference">
                     <label>Referencia de contacto
-                        <input type="text" list="reference-list" placeholder="Refetencia de contacto" class="input-reference">
+                        <input required type="text" list="reference-list" placeholder="Referencia de contacto" class="input-reference">
                         <datalist id="reference-list">
                             <option value="Redes sociales">Facebook / TikTok / Instagram / WhatsApp</option>
                             <option value="Conocido (s)">Familiar / Amigo (a)</option>
@@ -146,20 +154,20 @@
                     </label>
                 </div>
 
-                <div class="form__imput-container container--message">
+                <div class="form__input-container container--message">
                     <label>Mensaje
-                        <textarea name="mensaje" id="mensaje" ></textarea>
+                        <textarea name="mensaje" id="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
                     </label>
                 </div>
 
-                <div class="form__imput-container container--terms">
-                    <label>Acepto los <a href="#">términos y condiciones</a>
-                        <input type="checkbox">
+                <div class="form__input-container container--terms">
+                    <label class="label-terms">Acepto los <a href="#" class="link-terms">términos y condiciones</a>
+                        <input type="checkbox" required>
                     </label>
                 </div>
 
-                <div class="form__imput-container container--submit">
-                    <input type="submit" value="Enviar">
+                <div class="form__input-container container--submit">
+                    <input type="submit" value="Enviar" class="submit">
                 </div>
             </form>
 

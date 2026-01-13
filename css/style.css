@@ -1,35 +1,40 @@
 /*----GENERAL SETTINGS----*/
-* , ::before , ::after{
+*, ::before, ::after {
     box-sizing: border-box;
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     margin: 0;
     font-family: sans-serif;
     background-color: #eee8;
     display: flex;
     flex-direction: column;
     gap: 25px;
+    min-height: 100vh;
 }
 
-/*----HEADER SECITON----*/
-.header{
+/*----HEADER SECTION----*/
+.header {
     height: 100vh;
+    min-height: 600px;
     color: #fff;
     position: relative;
+    overflow: hidden;
 }
 
-.header__image-container{
-    width: 100%;
-    height: 100%;
+.header::after {
+    content: "";
     position: absolute;
-    z-index: -1;
+    inset: 0;
+    z-index: -2;
+    background: url("../images/Portada.jpg") center / cover no-repeat;
+    animation: move-bg 7s linear infinite alternate;
 }
 
-.header__image-container::before{
+.header::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -40,23 +45,17 @@ body{
     backdrop-filter: blur(2px);
 }
 
-.header__img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.header__title-container{
+.header__title-container {
     position: relative;
-    width: 75%;
     top: 50%;
     transform: translateY(-50%);
     margin-left: 30px;
     padding: 20px;
     width: 70vw;
+    z-index: 1;
 }
 
-h1{
+h1 {
     display: inline-block;
     margin: 0;
     font-size: 3rem;
@@ -64,10 +63,10 @@ h1{
     letter-spacing: 3px;
     text-wrap: balance;
     position: relative;
-    transition: color 0.9s ;
+    transition: color 0.9s;
 }
 
-h1::after{
+h1::after {
     display: inline-block;
     content: "En ADFJ University, tu talento se convierte en éxito. Prepárate para dejar huella en el mundo.";
     letter-spacing: 2px;
@@ -75,47 +74,77 @@ h1::after{
     font-size: 1.8rem;
     font-weight: 300;
     color: #fffa;
-    transition: color 0.9s ;
+    transition: color 0.9s;
     overflow-wrap: break-word;
     margin-top: 5px;
 }
 
-h1:hover{
+h1:hover {
     color: #f80;
 }
 
-h1:hover::after{
+h1:hover::after {
     color: #fff;
 }
 
-.header__navbar{
+.header__navbar {
     position: relative;
     z-index: 2;
     display: flex;
     justify-content: space-between;
-    padding: 0 15px;
+    align-items: center;
+    background-color: #0004;
 }
 
-.header__logo-container{
+.header__logo-container {
     width: 70px;
+    flex-shrink: 0;
 }
 
-.header__logo{
+.header__logo {
     width: 100%;
     display: inline-block;
 }
 
-.header__nav-list{
+/* Checkbox y menú hamburguesa */
+.header__menu-checkbox {
+    display: none;
+}
+
+.header__menu-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.header__menu-icon {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.header__menu-button:hover .header__menu-icon {
+    background-color: #f80;
+}
+
+.header__nav-list {
     display: flex;
     justify-content: right;
     align-items: center;
     gap: 30px;
     list-style: none;
-    padding: 15px;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
-.header__nav-link{
+.header__nav-link {
     text-decoration: none;
     padding: 10px 15px;
     letter-spacing: 2px;
@@ -126,67 +155,78 @@ h1:hover::after{
     text-align: center;
 }
 
-.header__nav-link:hover{
+.link-home {
     color: #f80;
 }
 
-.header__nav-link::before{
+.header__nav-link:hover {
+    color: #f80;
+}
+
+.header__nav-link::before {
     content: "";
     position: absolute;
-    background: linear-gradient(#fff 00) center/ 0 100%  no-repeat;
+    background: linear-gradient(#fff 00) center/ 0 100% no-repeat;
     left: 0;
     bottom: 0;
     width: 100%;
     height: 2px;
 }
 
-.header__nav-link:hover::before{
+.header__nav-link:hover::before {
     animation: animate-border 0.5s ease infinite alternate both;
 }
+
 /*----HEADER ENDS----*/
 
-/*----ABOUT SECTION----*/
-.main{
-    width: 75%;
+/*----MAIN----*/
+.main {
+    max-width: 90%;
+    width: 100%;
     margin: auto;
     min-height: 100vh;
-    border: px solid #000;
     background-color: transparent;
     display: flex;
     flex-direction: column;
     gap: 50px;
+    padding: 0 20px;
 }
 
-.section{
+/*----SECTION----*/
+.section {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 50px;
+    align-items: center;
 }
 
-.main--subtitle{
+/*----ABOUT SECTION----*/
+.main--subtitle {
     font-weight: 100;
     font-size: 2rem;
     padding: 15px 0;
-    width: 250px; 
+    width: 250px;
     border-bottom: 1px solid currentColor;
     text-transform: uppercase;
+    align-self: self-start;
 }
 
-h2{
+h2 {
     text-transform: capitalize;
     letter-spacing: 2px;
 }
 
-.about__container{
+.about__container {
     display: flex;
     gap: 45px;
     background-color: transparent;
+    width: 100%;
 }
 
-.about__mision , .about__vision{
-    border: px solid #f00;
+.about__mision, .about__vision {
     width: 50%;
-    border-radius: 6px ;
+    border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 20px #0002;
     text-align: center;
@@ -199,19 +239,466 @@ h2{
     flex-grow: 1;
 }
 
-.text-about{
+.text-about {
     padding: 15px;
+    line-height: 1.6;
 }
+
 /*----ABOUT ENDS----*/
 
+/*----CONTACT SECTION----*/
+.contact__form {
+    max-width: 100%;
+    min-height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "name last-name"
+        "email asunto"
+        "reference reference"
+        "message message"
+        "terms submit";
+    gap: 30px;
+    padding: 40px;
+    background: url("../images/Portada.jpg") center / cover no-repeat;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 0 20px #0003;
+    margin-bottom: 40px;
+}
+
+.contact__form:hover {
+    animation: move-bg 7s linear infinite alternate both;
+}
+
+.contact__form::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #0004;
+    z-index: 0;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+}
+
+.form__input-container {
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.form__input-container input,
+.form__input-container select,
+.form__input-container textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    position: relative;
+    font-size: 1rem;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: none;
+    border-color: #f80;
+}
+
+.form__input-container option {
+    background-color: #2228;
+    color: #fff;
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: #ccc;
+}
+
+.form__input-container label {
+    line-height: 2;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+    width: max-content;
+    margin-left: 10px;
+    transform: scale(1.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 200px;
+}
+
+.container--name {
+    grid-area: name;
+}
+
+.container--lastname {
+    grid-area: last-name;
+}
+
+.container--email {
+    grid-area: email;
+}
+
+.container--asunto {
+    grid-area: asunto;
+}
+
+.container--reference {
+    grid-area: reference;
+}
+
+.container--message {
+    grid-area: message;
+}
+
+.container--terms {
+    grid-area: terms;
+    display: flex;
+    align-items: center;
+}
+
+.container--submit {
+    grid-area: submit;
+}
+
+.container--terms .label-terms {
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.link-terms {
+    color: #fff;
+    text-decoration: underline;
+    margin: 0 5px;
+}
+
+.link-terms:hover {
+    color: #f80;
+}
+
+.submit:hover,
+.label-terms:hover,
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+input[class="submit"] {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    position: relative;
+    z-index: 2;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[class="submit"]:hover {
+    background-color: #f80;
+    border-color: #f80;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 136, 0, 0.3);
+}
+
+.container--submit::before {
+    content: "";
+    border-radius: 8px;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(#f80 00) left / 0 100% no-repeat;
+    transition: background-size 1s ease;
+    z-index: 1;
+}
+
+.container--submit:hover::before {
+    background-size: 100% 100%;
+}
 
 /*----ANIMACIONES----*/
-@keyframes animate-border{
-    from{
+@keyframes animate-border {
+    from {
         background-size: 0 100%;
     }
-
-    to{
+    to {
         background-size: 100% 100%;
+    }
+}
+
+@keyframes move-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/*----MEDIAS QUERIES----*/
+
+/*----hasta 1024px----*/
+@media (max-width: 1024px) {
+    .header__title-container {
+        width: 80vw;
+        margin-left: 20px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h1::after {
+        font-size: 1.5rem;
+    }
+    
+    .main {
+        max-width: 95%;
+    }
+    
+    .contact__form {
+        gap: 25px;
+        padding: 30px;
+    }
+    
+    .about__container {
+        gap: 30px;
+    }
+    
+    .header__nav-list {
+        gap: 20px;
+    }
+}
+
+/* ----hasta 768px----*/
+@media (max-width: 768px) {
+    .header__navbar {
+        padding: 10px 15px;
+    }
+    
+    .header__logo-container {
+        width: 60px;
+    }
+    
+    /* Menú hamburguesa visible */
+    .header__menu-button {
+        display: flex;
+    }
+    
+    /* Checkbox para controlar el menú */
+    .header__menu-checkbox:checked ~ .header__nav-list {
+        right: 0;
+    }
+    
+    /* Cambiar ícono de hamburguesa a X cuando está activo */
+    .header__menu-checkbox:checked + .header__menu-button .header__menu-icon:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .header__menu-checkbox:checked + .header__menu-button .header__menu-icon:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .header__menu-checkbox:checked + .header__menu-button .header__menu-icon:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* Menú oculto por defecto en móviles */
+    .header__nav-list {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 80px;
+        gap: 0;
+        z-index: 99;
+        transition: right 0.4s ease;
+    }
+    
+    .header__nav-item {
+        width: 100%;
+    }
+    
+    .header__nav-link {
+        display: block;
+        padding: 20px;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .header__nav-link:hover {
+        background-color: rgba(255, 136, 0, 0.1);
+    }
+    
+    .header__title-container {
+        width: 90vw;
+        margin-left: 15px;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h1::after {
+        font-size: 1.3rem;
+        margin-top: 15px;
+    }
+    
+    .main {
+        max-width: 100%;
+        padding: 0 15px;
+        gap: 40px;
+    }
+    
+    .main--subtitle {
+        font-size: 1.8rem;
+        width: 200px;
+        align-self: center;
+        text-align: center;
+    }
+    
+    .about__container {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .about__mision, .about__vision {
+        width: 100%;
+        padding: 25px 15px;
+    }
+    
+    .contact__form {
+        grid-template-areas:
+            "name"
+            "last-name"
+            "email"
+            "asunto"
+            "reference"
+            "message"
+            "terms"
+            "submit";
+        gap: 20px;
+        padding: 25px;
+    }
+    
+    .form__input-container input,
+    .form__input-container select,
+    .form__input-container textarea {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    
+    input[class="submit"] {
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    .section {
+        gap: 40px;
+    }
+}
+
+/* Móviles pequeños (hasta 480px) */
+@media (max-width: 480px) {
+    .header {
+        min-height: 500px;
+    }
+    
+    .header__logo-container {
+        width: 50px;
+    }
+    
+    .header__title-container {
+        margin-left: 10px;
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+    
+    h1::after {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        line-height: 1.4;
+    }
+    
+    .main--subtitle {
+        font-size: 1.6rem;
+        width: 180px;
+        padding: 10px 0;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .text-about {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+    
+    .about__mision, .about__vision {
+        padding: 20px 10px;
+    }
+    
+    .contact__form {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+    
+    .form__input-container label {
+        font-size: 0.9rem;
+        line-height: 1.8;
+    }
+    
+    .container--terms .label-terms {
+        font-size: 0.9rem;
+    }
+    
+    .header__menu-button {
+        width: 25px;
+        height: 18px;
+    }
+    
+    .header__menu-icon {
+        height: 2.5px;
     }
 }
