@@ -313,7 +313,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible{
     color: #fff;
 }
 
-input::placeholder{
+input::placeholder, textarea::placeholder{
     font-family: sans-serif;
     letter-spacing: 1px;
     color: #fff;
@@ -409,8 +409,6 @@ input[class="submit"]{
 .container--submit:hover::before {
     background-size: 100% 100%;
 }
-
-
 
 /*----ANIMACIONES----*/
 @keyframes animate-border{
