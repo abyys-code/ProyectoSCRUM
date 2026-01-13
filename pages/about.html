@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Asistencia</title>
+    <link rel="stylesheet" href="../css/asistencia.css">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER CON NAVEGACION -->
+        <header class="header" style="background-image: none; height: auto;">
+            <nav class="header__navbar">
+                <div class="header__logo-container">
+                    <img src="../images/logo_universidad.png" alt="Logo de Universidad" class="header__logo">
+                </div>
+
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="../index.html" class="header__nav-link">Home</a>
+                    </li>
+
+                    <li class="header__nav-item">
+                        <a href="about.html" class="header__nav-link" style="color: #f80;">Toma de Asistencia</a>
+                    </li>
+
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link">To-do List</a>
+                    </li>
+
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link">Grades</a>
+                    </li>
+
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link">Login</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <div class="form-container">
+                
+                <!-- TITULO -->
+                <div class="form-titulo">
+                    <h1>REGISTRO DE ASISTENCIA</h1>
+                </div>
+
+                <!-- SECCION DOCENTE -->
+                <div class="seccion-docente">
+                    <h3>Información del Docente</h3>
+                    <div class="encabezado-row">
+                        <div class="encabezado-item">
+                            <label>Docente:</label>
+                            <input type="text" id="docente" placeholder="Nombre del docente">
+                        </div>
+                        <div class="encabezado-item">
+                            <label>Asignatura:</label>
+                            <input type="text" id="asignatura" placeholder="Ej. Matemáticas">
+                        </div>
+                    </div>
+                    <div class="encabezado-row">
+                        <div class="encabezado-item">
+                            <label>Curso:</label>
+                            <input type="text" id="curso" placeholder="Ej. 1ro A">
+                        </div>
+                        <div class="encabezado-item">
+                            <label>Paralelo:</label>
+                            <input type="text" id="paralelo" placeholder="Ej. A">
+                        </div>
+                        <div class="encabezado-item">
+                            <label>Especialidad:</label>
+                            <input type="text" id="especialidad" placeholder="Ej. Electrónica">
+                        </div>
+                    </div>
+                    <div class="docente-buttons">
+                        <button type="button" id="guardar-docente" class="btn-guardar">Guardar</button>
+                        <button type="button" id="actualizar-docente" class="btn-actualizar">Actualizar</button>
+                    </div>
+                </div>
+
+                <!-- FORMULARIO DE ENTRADA -->
+                <div class="form-agregar">
+                    <h3>Agregar Nuevo Estudiante</h3>
+                    <form id="form-asistencia">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre y Apellido</label>
+                                <input type="text" id="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha">Fecha</label>
+                                <input type="date" id="fecha" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full">
+                                <label for="tema">Tema</label>
+                                <input type="text" id="tema" placeholder="Tema de la clase">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hora-entrada">Hora de Ingreso</label>
+                                <input type="time" id="hora-entrada">
+                            </div>
+                            <div class="form-group">
+                                <label for="hora-salida">Hora de Salida</label>
+                                <input type="time" id="hora-salida">
+                            </div>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn-guardar">Guardar Registro</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TABLA DE REGISTROS -->
+                <div class="registros-container">
+                    <!-- ESTADISTICAS -->
+                    <div class="estadisticas-section">
+                        <div class="stat-item">
+                            <label>Total Registros:</label>
+                            <span id="stat-total">0</span>
+                        </div>
+                    </div>
+
+                    <div class="tabla-wrapper">
+                        <table class="tabla-asistencia" id="tabla-registros">
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>NOMBRES Y APELLIDOS</th>
+                                    <th>FECHA</th>
+                                    <th>TEMA</th>
+                                    <th>HORA INGRESO</th>
+                                    <th>HORA SALIDA</th>
+                                    <th>ACCIÓN</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-registros"></tbody>
+                        </table>
+                        <div class="empty-message" id="tabla-empty">
+                            <p>No hay registros aún</p>
+                        </div>
+                    </div>
+                </div>
