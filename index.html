@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Página Oficial de ADFJ Academy">
+    <meta name="robots" content="max-image-preview:large">
+    <meta name="author" content="Abi, Danilo Joel, Flavio Silva">
+    
+    <meta property="og:title" content="ADFJ University">
+    <meta property="og:description" content="Página Oficial de ADFJ University">
+    <meta property="og:image" content="https://cdn.pixabay.com/photo/2022/08/30/20/47/institute-7421918_1280.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ADFJ University">
+    <link rel="icon" href="images/logo_universidad.png" type="image/png">
+    
+    <title>ADFJ University</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!------HEADER SECTION------>
+    <header class="header">
+        <nav class="header__navbar">
+            <div class="header__logo-container">
+                <img src="images/logo_universidad.png" alt="Logo de Universidad" class="header__logo">
+            </div>
+
+            <!-- Checkbox para menú hamburguesa -->
+            <input type="checkbox" id="menu-toggle" class="header__menu-checkbox">
+            <label for="menu-toggle" class="header__menu-button">
+                <span class="header__menu-icon">.</span>
+                <span class="header__menu-icon">.</span>
+                <span class="header__menu-icon">.</span>
+            </label>
+
+            <ul class="header__nav-list" id="navList">
+                <li class="header__nav-item">
+                    <a href="index.html" class="header__nav-link link-home">Principal</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="pages/asistencia.html" class="header__nav-link">Asistencia</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="#" class="header__nav-link">Docente</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="#about" class="header__nav-link">Acerca de</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="#contact" class="header__nav-link">Contacto</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="pages/login.html" class="header__nav-link">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header__title-container">
+            <h1 class="header__title">
+                ADFJ University
+            </h1>
+        </div>
+
+    </header>
+    <!------HEADER ENDS------>
+
+    <!------MAIN SECTION------>
+    <main class="main">
+        <!------ABOUT SECTION------>
+        <section class="section about__section" id="about">
+            <h2 class="main--subtitle about__title">Acerca de</h2>
+            <div class="about__container">
+                <div class="about__mision">
+                    <h2>Misión</h2>
+                    <p class="text-about text-mision">
+                        Formar profesionales de calidad innovadores y comprometidos con el desarrollo tecnológico.
+                    </p>
+                </div>
+
+                <div class="about__vision">
+                    <h2>Visión</h2>
+                    <p class="text-about text-vision">
+                        Liderar la educación tecnológica en Latinoamérica siendo un referente de excelencia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!------CONTACT SECTION------>
+        <section class="section contact__section" id="contact">
+            <h2 class="main--subtitle contact__title">
+                Contacto
+            </h2>
+            <form method="post" class="contact__form" action="">
+                <div class="form__input-container container--name">
+                    <label for="name"> Nombre
+                        <input 
+                        type="text"
+                        class="input-name"
+                        placeholder="Jhon"
+                        id="name"
+                        required
+                        >
+                    </label>
+                </div>
+
+                <div class="form__input-container container--lastname">
+                    <label for="apellido"> Apellidos
+                        <input 
+                        type="text"
+                        class="input-name"
+                        placeholder="Doe"
+                        id="apellido"
+                        required
+                        >
+                    </label>
+                </div>
+
+                <div class="form__input-container container--email">
+                    <label> Correo electrónico
+                        <input 
+                        type="email"
+                        class="input-name"
+                        placeholder="alguien@gmail.com"
+                        required
+                        >
+                    </label>
+                </div>
+
+                <div class="form__input-container container--asunto">
+                    <label>Asunto
+                        <select name="asunto" id="asunto" class="input-asunto" required>
+                            <option value="consulta">Consulta</option>
+                            <option value="queja">Queja</option>
+                            <option value="interes-estudio">Interés de estudio</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form__input-container container--reference">
+                    <label>Referencia de contacto
+                        <input required type="text" list="reference-list" placeholder="Referencia de contacto" class="input-reference">
+                        <datalist id="reference-list">
+                            <option value="Redes sociales">Facebook / TikTok / Instagram / WhatsApp</option>
+                            <option value="Conocido (s)">Familiar / Amigo (a)</option>
+                            <option value="Otros">Otros medios</option>
+                        </datalist>
+                    </label>
+                </div>
+
+                <div class="form__input-container container--message">
+                    <label>Mensaje
+                        <textarea name="mensaje" id="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                    </label>
+                </div>
+
+                <div class="form__input-container container--terms">
+                    <label class="label-terms">Acepto los <a href="pages/terms.html" class="link-terms">términos y condiciones</a>
+                        <input type="checkbox" required>
+                    </label>
+                </div>
+
+                <div class="form__input-container container--submit">
+                    <input type="submit" value="Enviar" class="submit">
+                </div>
+            </form>
+        </section>
+    </main>
+
+<!------FOOTER SECTION------>
+    <footer class="footer">
+        <div class="card-foot">
+            <!------ENLACES------>
+            <div class="card-foot__section foot--enlaces">
+                <h2 class="footer--subtitle">Enlaces</h2>
+                <nav class="footer__nav">
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-item">
+                            <a href="pages/asistencia.html" class="footer__nav-link">Asistencia</a>
+                        </li>
+
+                        <li class="footer__nav-item">
+                            <a href="#" class="footer__nav-link">Docente</a>
+                        </li>
+
+                        <li class="footer__nav-item">
+                            <a href="#about" class="footer__nav-link">Acerca de</a>
+                        </li>
+
+                        <li class="footer__nav-item">
+                            <a href="#contact" class="footer__nav-link">Contacto</a>
+                        </li>
+
+                        <li class="footer__nav-item">
+                            <a href="pages/login.html" class="footer__nav-link">Iniciar Sesión</a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+
+            <!------REDES SOCIALES------>
+            <div class="card-foot__section foot--social">
+                <h2 class="footer--subtitle">Redes Sociales</h2>
+                <div class="container--social">
+                   <div class="card-social card--whatsapp">
+                        <a href="https://wa.me/51953369819?text=Hola%20que%20tal." class="link-social" target="_blank" rel="noopener noreferrer">
+                            <img src="images/whatsapp.png" alt="WhatsApp" class="img-social">
+                        </a>
+                    </div>
+
+                   <div class="card-social card--facebook">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="link-social">
+                            <img src="images/facebook.png" alt="Facebook" class="img-social">
+                        </a>
+                    </div>
+
+                   <div class="card-social card--instagram">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="link-social">
+                            <img src="images/instagram.png" alt="Instagram" class="img-social">
+                        </a>
+                    </div>
+
+                   <div class="card-social card--youtube">
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="link-social">
+                            <img src="images/youtube.png" alt="YouTube" class="img-social">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!------MANTENTE INFORMADO------>
+            <div class="card-foot__section foot--email">
+                <h2 class="footer--subtitle">Mantente Informado</h2>
+                <form class="footer__form">
+                    <div class="footer__input-container">
+                        <label class="label-footer" for="foot-email">Déja tu correo y mantente informado</label>
+                        <input 
+                            type="email" 
+                            id="foot-email" 
+                            placeholder="alguien@gmail.com" required 
+                            class="foot-input-email"
+                        >
+                    </div>
+
+                    <div class="footer__input-container">
+                        <input type="submit" value="Enviar" class="foot-input-submit">
+                    </div>
+
+                    <div class="footer__input-container">
+                        <label class="foot-label-terms">Acepto los <a href="pages/terms.html" class="foot-link-terms">términos y condiciones</a>
+                            <input type="checkbox" required>
+                        </label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
