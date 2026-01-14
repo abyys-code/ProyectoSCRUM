@@ -1,24 +1,34 @@
 // Manejo de asistencias en reuniones Scrum
 let registros = JSON.parse(localStorage.getItem('asistencias_scrum')) || [];
 
-const form = document.getElementById('asistenciaForm');
-const tablaCuerpo = document.getElementById('tablaCuerpo');
-const filtroEstado = document.getElementById('filtroEstado');
-const mensajeVacio = document.getElementById('mensajeVacio');
+const ObtenerElement = (id) => document.getElementById(id);
+
+const form = ObtenerElement('asistenciaForm');
+const tablaCuerpo = ObtenerElement('tablaCuerpo');
+const filtroEstado = ObtenerElement('filtroEstado');
+const mensajeVacio = ObtenerElement('mensajeVacio');
 
 function renderizarTabla(filtro = 'Todos') {
     tablaCuerpo.innerHTML = '';
     const registrosFiltrados = filtro === 'Todos' ? registros : registros.filter(r => r.estado === filtro);
-    if (registrosFiltrados.length === 0) {
-        mensajeVacio.classList.remove('hidden');
-    } else {
-        mensajeVacio.classList.add('hidden');
+
+    switch (registrosFiltrados.length) {
+        case 0:
+            mensajeVacio.classList.remove('hidden'); break;
+        default:
+            mensajeVacio.classList.add('hidden');
     }
     registrosFiltrados.forEach((reg) => {
         let colorBadge = '';
-        if(reg.estado === 'Presente') colorBadge = 'bg-green-100 text-green-800';
-        else if(reg.estado === 'Ausente') colorBadge = 'bg-red-100 text-red-800';
-        else colorBadge = 'bg-yellow-100 text-yellow-800';
+
+        switch (reg.estado) {
+            case 'Presente':
+                colorBadge = 'bg-green-100 text-green-800'; break;
+            case 'Ausente':
+                colorBadge = 'bg-red-100 text-red-800'; break;
+            case 'Tarde':
+                colorBadge = 'bg-yellow-100 text-yellow-800'; break;
+        }
         const fila = document.createElement('tr');
         fila.innerHTML = `
             <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${reg.nombre}</td>
@@ -51,22 +61,22 @@ function nombreValido(nombre) {
 
 // Mostrar mensaje de error debajo del nombre
 function mostrarErrorNombre(msg) {
-    let error = document.getElementById('error-nombre');
+    let error = ObtenerElement('error-nombre');
     if (!error) {
         error = document.createElement('div');
         error.id = 'error-nombre';
         error.className = 'text-red-600 text-sm mt-1';
-        document.getElementById('nombre').parentNode.appendChild(error);
+        ObtenerElement('nombre').parentNode.appendChild(error);
     }
     error.textContent = msg;
 }
 function limpiarErrorNombre() {
-    const error = document.getElementById('error-nombre');
+    const error = ObtenerElement('error-nombre');
     if (error) error.remove();
 }
 
 // Limpiar error automáticamente al cambiar la fecha
-const inputFecha = document.getElementById('fecha');
+const inputFecha = ObtenerElement('fecha');
 if (inputFecha) {
     inputFecha.addEventListener('input', () => {
         limpiarErrorNombre();
@@ -75,8 +85,8 @@ if (inputFecha) {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const nombre = document.getElementById('nombre').value;
-    const fecha = document.getElementById('fecha').value;
+    const nombre = ObtenerElement('nombre').value,
+            fecha = ObtenerElement('fecha').value;
     // Validar nombre
     if (!nombreValido(nombre)) {
         mostrarErrorNombre('Por favor ingresa un nombre válido (sin repeticiones, solo letras, máx. 40 caracteres).');
@@ -84,9 +94,10 @@ form.addEventListener('submit', (e) => {
     }
     // Validar fecha: solo permitira la fecha del día actual
     const hoy = new Date();
-    const yyyy = hoy.getFullYear();
-    const mm = String(hoy.getMonth() + 1).padStart(2, '0');
-    const dd = String(hoy.getDate()).padStart(2, '0');
+    const yyyy = hoy.getFullYear(),
+            mm = String(hoy.getMonth() + 1).padStart(2, '0'),
+            dd = String(hoy.getDate()).padStart(2, '0');
+
     const hoyStr = `${yyyy}-${mm}-${dd}`;
     if (fecha !== hoyStr) {
         mostrarErrorNombre('La fecha ingresada no coincide con la fecha actual.');

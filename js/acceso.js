@@ -1,5 +1,5 @@
 // Mostrar menú de usuario solo si está logueado
-
+/*
 document.addEventListener('DOMContentLoaded', function() {
     const usuario = localStorage.getItem('usuario_logueado');
     const accesoMenu = document.getElementById('acceso-menu');
@@ -23,4 +23,27 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem('usuario_logueado');
         window.location.href = 'login.html';
     });
+});*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const usuario = localStorage.getItem('usuario_logueado');
+    const BuscarElement = (id) => document.getElementById(id); // Pequeño helper para reducir código
+
+    // Alternar visibilidad con operador ternario
+    BuscarElement('acceso-menu').style.display = usuario ? '' : 'none'; // Estructura: ¿Condición? (Si es verdad) : (Si es falso)
+    BuscarElement('login-menu').style.display = usuario ? 'none' : ''; // Estructura: ¿Condición? (Si es verdad) : (Si es falso)
+    
+    if (usuario)
+        BuscarElement('acceso-usuario').textContent = usuario;
+
+    // Dropdown
+    const dropdown = BuscarElement('acceso-dropdown');
+    BuscarElement('acceso-link').onmouseenter = () => dropdown.style.display = 'block';
+    BuscarElement('acceso-menu').onmouseleave = () => dropdown.style.display = 'none';
+
+    // Cerrar sesión
+    BuscarElement('cerrarSesionBtn').onclick = () => {
+        localStorage.removeItem('usuario_logueado');
+        window.location.href = 'login.html';
+    };
 });
