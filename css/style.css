@@ -170,7 +170,7 @@ h1:hover::after {
     text-align: center;
 }
 
-.link-home {
+.link-home, .link-asistencia {
     color: #f80;
 }
 
@@ -437,13 +437,13 @@ input[class="submit"] {
     background-color: #000;
     min-height: 25svh;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     border-top: 1px solid #222;
 }
 
 .card-foot {
-    max-width: 1200px;
+    max-width: 1000px;
     width: 100%;
     display: grid;
     grid-template-areas: "enlace social notificaciones";
@@ -581,8 +581,16 @@ input[class="submit"] {
     transition: color 0.3s ease;
 }
 
-.foot-input-submit:hover {
+.foot-label-terms , .foot-link-terms, .label-terms , .link-terms{
+    transition: color 0.2s ease;
+}
+
+.foot-input-submit:hover, .foot-label-terms:hover, .label-terms:hover {
     color: #f80;
+}
+
+.foot-label-terms:hover .foot-link-terms, .label-terms:hover .link-terms{
+    color: inherit;
 }
 
 .label-footer {
