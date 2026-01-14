@@ -123,18 +123,19 @@
                 </div>
 
                 <div class="form__input-container container--email">
-                    <label> Correo electrónico
+                    <label for="email"> Correo electrónico
                         <input 
                         type="email"
                         class="input-name"
                         placeholder="alguien@gmail.com"
+                        id="email"
                         required
                         >
                     </label>
                 </div>
 
                 <div class="form__input-container container--asunto">
-                    <label>Asunto
+                    <label for="asunto">Asunto
                         <select name="asunto" id="asunto" class="input-asunto" required>
                             <option value="consulta">Consulta</option>
                             <option value="queja">Queja</option>
@@ -144,8 +145,8 @@
                 </div>
 
                 <div class="form__input-container container--reference">
-                    <label>Referencia de contacto
-                        <input required type="text" list="reference-list" placeholder="Referencia de contacto" class="input-reference">
+                    <label for="referencia">Referencia de contacto
+                        <input required type="text" list="reference-list" placeholder="Referencia de contacto" id="referencia" class="input-reference">
                         <datalist id="reference-list">
                             <option value="Redes sociales">Facebook / TikTok / Instagram / WhatsApp</option>
                             <option value="Conocido (s)">Familiar / Amigo (a)</option>
@@ -155,7 +156,7 @@
                 </div>
 
                 <div class="form__input-container container--message">
-                    <label>Mensaje
+                    <label for="mensaje">Mensaje
                         <textarea name="mensaje" id="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
                     </label>
                 </div>
@@ -265,5 +266,6 @@
         </div>
     </footer>
 
+    <script src="js/acceso.js"></script>
 </body>
 </html>

@@ -1,140 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprint 1: Registro de Asistencia</title>
+    <meta name="description" content="Registro de asistencia - ADFJ University">
+    <title>Asistencia | ADFJ University</title>
+
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Estilos propios de asistencia -->
+    <link rel="stylesheet" href="../css/asistencia.css">
     <link rel="icon" href="../images/logo_universidad.png" type="image/png">
-    <link rel="stylesheet" href="../css/asistencia.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../css/asistencia.css">
-    <script defer src="../js/main.js"></script>
-    <script>
-    //  solo usuarios logueados
-    if (!localStorage.getItem('usuario_logueado')) {
-        window.location.href = 'login.html';
-    }
-    </script>
 </head>
 
-<body>
+<body class="asistencia-body">
+    <!-- HEADER: misma barra de navegación que en index -->
+    <header class="header">
+        <nav class="header__navbar">
+            <div class="header__logo-container">
+                <img src="../images/logo_universidad.png" alt="Logo de Universidad" class="header__logo">
+            </div>
 
-    <!-- Barra de navegación -->
-    <nav class="header__navbar" style="background-color: #1f2937; padding: 15px; position: relative; z-index: 10;">
-        <div class="header__logo-container">
-            <img src="../images/logo_universidad.png" alt="Logo de Universidd" class="header__logo">
-        </div>
+            <!-- Checkbox para menú hamburguesa -->
+            <input type="checkbox" id="menu-toggle" class="header__menu-checkbox">
+            <label for="menu-toggle" class="header__menu-button">
+                <span class="header__menu-icon">.</span>
+                <span class="header__menu-icon">.</span>
+                <span class="header__menu-icon">.</span>
+            </label>
 
-        <ul class="header__nav-list">
-            <li class="header__nav-item">
-                <a href="../index.html" class="header__nav-link">Principal</a>
-            </li>
-            <li class="header__nav-item">
-                <a href="asistencia.html" class="header__nav-link" style="color: #f80;">Asistencia</a>
-            </li>
-            <li class="header__nav-item">
-                <a href="#" class="header__nav-link">Docente</a>
-            </li>
-            <li class="header__nav-item">
-                <a href="../index.html#about" class="header__nav-link">Acerca de</a>
-            </li>
-            <li class="header__nav-item" id="acceso-menu" style="position:relative;">
-                <a href="#" class="header__nav-link" id="acceso-link">Acceso</a>
-                <div id="acceso-dropdown" style="display:none;position:absolute;right:0;top:100%;background:#fff;color:#222;min-width:150px;box-shadow:0 2px 8px #0002;border-radius:6px;z-index:100;">
-                    <div style="padding:10px 16px;border-bottom:1px solid #eee;">
-                        <span id="acceso-usuario" style="font-weight:bold;">admin</span>
-                    </div>
-                    <button id="cerrarSesionBtn" style="width:100%;background:none;border:none;padding:10px 16px;text-align:left;cursor:pointer;color:#d32f2f;">Cerrar sesión</button>
-                </div>
-            </li>
-            <li class="header__nav-item" id="login-menu">
-                <a href="login.html" class="header__nav-link">Iniciar Sesión</a>
-            </li>
-            <script defer src="../js/acceso.js"></script>
-        </ul>
-    </nav>
+            <ul class="header__nav-list" id="navList">
+                <li class="header__nav-item">
+                    <a href="../index.html" class="header__nav-link link-home">Principal</a>
+                </li>
 
-    <div class="max-w-5xl mx-auto" style="padding: 2rem 1rem; position: relative; z-index: 5;">
-        <!-- Encabezado -->
-        <header class="mb-8 text-center">
-            <h1 class="text-3xl font-bold text-gray-800">Asistencia</h1>
+                <li class="header__nav-item">
+                    <a href="asistencia.html" class="header__nav-link">Asistencia</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="#" class="header__nav-link">Docente</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="../index.html#about" class="header__nav-link">Acerca de</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="../index.html#contact" class="header__nav-link">Contacto</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="login.html" class="header__nav-link">Iniciar Sesión</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="#" class="header__nav-link" id="cerrarSesion">Cerrar Sesión</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="contenedor-principal">
+        <header class="header-asistencia">
+            <h1 class="titulo-asistencia">Registro de asistencia</h1>
         </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            <!-- Formulario / Lado Izquierdo -->
-            <section class="lg:col-span-1">
-                <div class="card p-6">
-                    <h2 class="text-xl font-semibold mb-4 text-indigo-700">Nuevo Registro</h2>
-                    <form id="asistenciaForm" class="space-y-4">
-                        <div>
-                            <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre del Estudiante</label>
-                            <input type="text" id="nombre" required
-                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-indigo-500 focus:border-indigo-500"
-                                placeholder="Ej. Juan Pérez">
+        <div class="contenedor-grid">
+            <!-- Formulario (Lado Izquierdo) -->
+            <section class="seccion-izquierda">
+                <div class="caja-formulario">
+                    <h2 class="subtitulo">Registrar Alumno</h2>
+                    <form id="asistenciaForm" class="formulario">
+                        <div class="grupo-formulario">
+                            <label class="etiqueta">Nombre Completo</label>
+                            <input type="text" id="nombre" required class="entrada-formulario">
                         </div>
-                        <div>
-                            <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha</label>
-                            <input type="date" id="fecha" required
-                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <div class="grupo-formulario">
+                            <label class="etiqueta">Fecha</label>
+                            <input type="date" id="fecha" required class="entrada-formulario">
                         </div>
-                        <div>
-                            <label for="estado" class="block text-sm font-medium text-gray-700">Estado</label>
-                            <select id="estado" required
-                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <div class="grupo-formulario">
+                            <label class="etiqueta">Estado de Asistencia</label>
+                            <select id="estado" class="entrada-formulario">
                                 <option value="Presente">Presente</option>
                                 <option value="Ausente">Ausente</option>
                                 <option value="Tarde">Tarde</option>
                             </select>
                         </div>
-                        <button type="submit" 
-                            class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">
-                            Registrar Asistencia
+                        <button type="submit" class="boton-enviar">
+                            Guardar Registro
                         </button>
                     </form>
                 </div>
             </section>
 
-            <!-- Listado y Filtros /lado derecho  -->
-            <section class="lg:col-span-2">
-                <div class="card p-6">
-                    <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-                        <h2 class="text-xl font-semibold text-gray-800">Listado de Asistencia</h2>
-                        
-                        <!-- Filtro -->
-                        <div class="flex items-center gap-2">
-                            <label for="filtroEstado" class="text-sm text-gray-500">Filtrar por:</label>
-                            <select id="filtroEstado" class="border border-gray-300 rounded-md p-1 text-sm">
-                                <option value="Todos">Todos</option>
-                                <option value="Presente">Presente</option>
-                                <option value="Ausente">Ausente</option>
-                                <option value="Tarde">Tarde</option>
+            <!-- Listado (Lado Derecho) -->
+            <section class="seccion-derecha">
+                <div class="caja-listado">
+                    <div class="encabezado-listado">
+                        <h2 class="subtitulo">Listado</h2>
+                        <div class="filtro-contenedor">
+                            <label class="etiqueta-filtro">Filtrar por:</label>
+                            <select id="filtroEstado" class="selector-filtro">
+                                <option value="Todos">Ver Todos</option>
+                                <option value="Presente">Solo Presentes</option>
+                                <option value="Ausente">Solo Ausentes</option>
+                                <option value="Tarde">Solo Tardanzas</option>
                             </select>
                         </div>
                     </div>
 
-                    <!-- Tabla -->
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
+                    <div class="contenedor-tabla">
+                        <table class="tabla-asistencia">
+                            <thead class="encabezado-tabla">
                                 <tr>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Estudiante</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Fecha</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Estado</th>
-                                    <th class="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase">Acción</th>
+                                    <th class="celda-encabezado">Estudiante</th>
+                                    <th class="celda-encabezado">Fecha</th>
+                                    <th class="celda-encabezado">Estado</th>
+                                    <th class="celda-encabezado celda-accion">Acción</th>
                                 </tr>
                             </thead>
-                            <tbody id="tablaCuerpo" class="bg-white divide-y divide-gray-200">
+                            <tbody id="tablaCuerpo" class="cuerpo-tabla">
                             </tbody>
                         </table>
                     </div>
-                    
-                    <div id="mensajeVacio" class="hidden text-center py-8 text-gray-500">
+
+                    <div id="mensajeVacio" class="mensaje-vacio" style="display: none;">
                         No hay registros que coincidan.
                     </div>
                 </div>
             </section>
         </div>
     </div>
+
+    <script src="../js/main.js"></script>
 </body>
+
 </html>
