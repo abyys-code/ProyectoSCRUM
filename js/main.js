@@ -9,7 +9,7 @@ function verificarSesion() {
         window.location.href = 'login.html';
         return false;
     }
-    return true;
+    return true;k
 }
 
 // Ejecutar verificación cuando el DOM esté listo
@@ -166,16 +166,17 @@ function inicializarApp() {
     document.getElementById('fecha').value = hoy;
     renderizarTabla();
 
-    // Cerrar sesión
-    const btnCerrarSesion = document.getElementById('cerrarSesion');
-    if (btnCerrarSesion) {
-        btnCerrarSesion.addEventListener('click', (e) => {
+    // Botón dinámico Login/Logout
+    const btnLoginLogout = document.getElementById('loginLogout');
+    if (btnLoginLogout) {
+        btnLoginLogout.textContent = 'Cerrar Sesión';
+        btnLoginLogout.addEventListener('click', (e) => {
             e.preventDefault();
             // Limpiar localStorage
             localStorage.removeItem('asistencias_scrum');
             localStorage.removeItem('usuario_logueado');
-            // Redirigir a login
-            window.location.href = 'login.html';
+            // Redirigir a principal
+            window.location.href = '../index.html';
         });
     }
 }

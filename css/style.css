@@ -609,6 +609,13 @@ input[class="submit"] {
     cursor: pointer;
 }
 
+.foot-label-terms:hover, .foot-link-terms:hover, .label-terms:hover, .link-terms:hover{
+    color: #f80;
+}
+
+.foot-label-terms:hover .foot-link-terms, .label-terms:hover .link-terms{
+    color: inherit;
+}
 
 /*----ANIMACIONES----*/
 @keyframes animate-border {
