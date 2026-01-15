@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Registro de asistencia - ADFJ University">
+    <title>Asistencia | ADFJ University</title>
+
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Estilos propios de asistencia -->
+    <link rel="stylesheet" href="../css/asistencia.css">
+    <link rel="icon" href="../images/logo_universidad.png" type="image/png">
+</head>
+
+<body class="asistencia-body">
+    <!-- HEADER: misma barra de navegación que en index -->
+    <header class="header">
+        <nav class="header__navbar">
+            <div class="header__logo-container">
+                <img src="../images/logo_universidad.png" alt="Logo de Universidad" class="header__logo">
+            </div>
+
+            <!-- Checkbox para menú hamburguesa -->
+            <input type="checkbox" id="menu-toggle" class="header__menu-checkbox">
+            <label for="menu-toggle" class="header__menu-button">
+                <span class="header__menu-icon">.</span>
+                <span class="header__menu-icon">.</span>
+                <span class="header__menu-icon">.</span>
+            </label>
+
+            <ul class="header__nav-list" id="navList">
+                <li class="header__nav-item">
+                    <a href="../index.html" class="header__nav-link ">Principal</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="asistencia.html" class="header__nav-link link-asistencia">Asistencia</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="#" class="header__nav-link">Docente</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="../index.html#about" class="header__nav-link">Acerca de</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="../index.html#contact" class="header__nav-link">Contacto</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="login.html" class="header__nav-link">Iniciar Sesión</a>
+                </li>
+
+                <li class="header__nav-item">
+                    <a href="#" class="header__nav-link" id="cerrarSesion">Cerrar Sesión</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="contenedor-principal">
+        <header class="header-asistencia">
+            <h1 class="titulo-asistencia">Registro de asistencia</h1>
+        </header>
+
+        <div class="contenedor-grid">
+            <!-- Formulario (Lado Izquierdo) -->
+            <section class="seccion-izquierda">
+                <div class="caja-formulario">
+                    <h2 class="subtitulo">Registrar Alumno</h2>
+                    <form id="asistenciaForm" class="formulario">
+                        <div class="grupo-formulario">
+                            <label class="etiqueta">Nombre Completo</label>
+                            <input type="text" id="nombre" required class="entrada-formulario">
+                        </div>
+                        <div class="grupo-formulario">
+                            <label class="etiqueta">Fecha</label>
+                            <input type="date" id="fecha" required class="entrada-formulario">
+                        </div>
+                        <div class="grupo-formulario">
+                            <label class="etiqueta">Estado de Asistencia</label>
+                            <select id="estado" class="entrada-formulario">
+                                <option value="Presente">Presente</option>
+                                <option value="Ausente">Ausente</option>
+                                <option value="Tarde">Tarde</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="boton-enviar">
+                            Guardar Registro
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Listado (Lado Derecho) -->
+            <section class="seccion-derecha">
+                <div class="caja-listado">
+                    <div class="encabezado-listado">
+                        <h2 class="subtitulo">Listado</h2>
+                        <div class="filtro-contenedor">
+                            <label class="etiqueta-filtro">Filtrar por:</label>
+                            <select id="filtroEstado" class="selector-filtro">
+                                <option value="Todos">Ver Todos</option>
+                                <option value="Presente">Solo Presentes</option>
+                                <option value="Ausente">Solo Ausentes</option>
+                                <option value="Tarde">Solo Tardanzas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="contenedor-tabla">
+                        <table class="tabla-asistencia">
+                            <thead class="encabezado-tabla">
+                                <tr>
+                                    <th class="celda-encabezado">Estudiante</th>
+                                    <th class="celda-encabezado">Fecha</th>
+                                    <th class="celda-encabezado">Estado</th>
+                                    <th class="celda-encabezado celda-accion">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaCuerpo" class="cuerpo-tabla">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="mensajeVacio" class="mensaje-vacio" style="display: none;">
+                        No hay registros que coincidan.
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
