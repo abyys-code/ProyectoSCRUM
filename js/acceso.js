@@ -1,41 +1,24 @@
-// Mostrar menú de usuario solo si está logueado
+// Mostrar menú de usuario y controlar botón Login/Logout
 
 document.addEventListener('DOMContentLoaded', function() {
     const usuario = localStorage.getItem('usuario_logueado');
-    const accesoMenu = document.getElementById('acceso-menu');
-    const loginMenu = document.getElementById('login-menu');
+    const loginLogoutBtn = document.getElementById('loginLogout');
     
-    // Solo ejecutar si los elementos existen
-    if (!accesoMenu || !loginMenu) {
-        return;
-    }
-    
-    if (usuario) {
-        accesoMenu.style.display = '';
-        loginMenu.style.display = 'none';
-        const accesoUsuario = document.getElementById('acceso-usuario');
-        if (accesoUsuario) {
-            accesoUsuario.textContent = usuario;
+    // Controlar el botón dinámico Login/Logout
+    if (loginLogoutBtn) {
+        if (usuario) {
+            // Usuario logueado: mostrar "Cerrar Sesión"
+            loginLogoutBtn.textContent = 'Cerrar Sesión';
+            loginLogoutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                localStorage.removeItem('usuario_logueado');
+                localStorage.removeItem('asistencias_scrum');
+                window.location.href = 'index.html';
+            });
+        } else {
+            // Usuario no logueado: mostrar "Login"
+            loginLogoutBtn.textContent = 'Login';
+            loginLogoutBtn.href = 'pages/login.html';
         }
-    } else {
-        accesoMenu.style.display = 'none';
-        loginMenu.style.display = '';
-    }
-    
-    // Dropdown
-    const accesoLink = document.getElementById('acceso-link');
-    const dropdown = document.getElementById('acceso-dropdown');
-    if (accesoLink && dropdown) {
-        accesoLink.addEventListener('mouseenter', () => dropdown.style.display = 'block');
-        accesoMenu.addEventListener('mouseleave', () => dropdown.style.display = 'none');
-    }
-    
-    // Cerrar sesión
-    const cerrarBtn = document.getElementById('cerrarSesionBtn');
-    if (cerrarBtn) {
-        cerrarBtn.addEventListener('click', function() {
-            localStorage.removeItem('usuario_logueado');
-            window.location.href = 'pages/login.html';
-        });
     }
 });
