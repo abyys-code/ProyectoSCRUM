@@ -502,9 +502,10 @@ input[class="submit"] {
 
 .container--social {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(50px, 75px));
+    grid-template-columns: repeat(auto-fill, minmax(50px,60px));
     grid-auto-rows: 60px;
     gap: 10px;
+    max-width: 150px;
 }
 
 .card-social {
@@ -563,8 +564,12 @@ input[class="submit"] {
     padding: 10px;
     border-radius: 8px;
     max-width: 100%;
-    width: 350px;
+    width: 300px;
     border: none;
+}
+
+.foot-input-email:focus-visible{
+    border: 1px solid #f80;
 }
 
 .foot-input-email::placeholder {
@@ -931,7 +936,7 @@ input[class="submit"] {
 }
 
 /* Extra pequeño hasta 350px */
-@media screen and (max-width:350px) {
+@media screen and (max-width:370px) {
     h1 {
         font-size: 1.5rem;
     }
