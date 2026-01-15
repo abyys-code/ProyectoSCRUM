@@ -599,7 +599,6 @@ input[class="submit"] {
     color: #48e;
     margin-right: 5px;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
 .foot-label-terms:hover, .foot-link-terms:hover, .label-terms:hover, .link-terms:hover{
