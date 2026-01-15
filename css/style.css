@@ -40,7 +40,7 @@ input[type="submit"] {
     position: absolute;
     inset: 0;
     z-index: -2;
-    background: url("../images/Portada.jpg") center / cover no-repeat;
+    background: url("../images/Portada.jpeg") center / cover no-repeat;
     animation: move-bg 7s linear infinite alternate;
 }
 
@@ -276,7 +276,7 @@ h2 {
         "terms submit";
     gap: 40px;
     padding: 40px;
-    background: url("../images/Portada.jpg") center / cover no-repeat;
+    background: url("../images/Portada.jpeg") center / cover no-repeat;
     border-radius: 8px;
     position: relative;
     border-radius: 10px;

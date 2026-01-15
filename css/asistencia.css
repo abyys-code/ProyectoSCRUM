@@ -2,7 +2,7 @@
 
 /* Fondo con imagen */
 .asistencia-body {
-    background: url("../images/Portada.jpg") center / cover no-repeat fixed;
+    background: url("../images/Portada.jpeg") center / cover no-repeat fixed;
     min-height: 100vh;
 }
 
