@@ -696,6 +696,7 @@ input[class="submit"] {
     /* Menú hamburguesa visible */
     .header__menu-button {
         display: flex;
+        position: relative;
     }
 
     .header__menu-checkbox:checked + .header__menu-button {
