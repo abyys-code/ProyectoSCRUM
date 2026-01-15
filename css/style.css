@@ -698,6 +698,12 @@ input[class="submit"] {
         display: flex;
     }
 
+    .header__menu-checkbox:checked + .header__menu-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+
     /* Checkbox para controlar el menú */
     .header__menu-checkbox:checked~.header__nav-list {
         right: 0;
