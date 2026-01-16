@@ -502,10 +502,11 @@ input[class="submit"] {
 
 .container--social {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(50px,60px));
+    grid-template-columns: repeat(2, minmax(50px, 60px));
     grid-auto-rows: 60px;
     gap: 10px;
     max-width: 150px;
+    padding: 5px 10px;
 }
 
 .card-social {
@@ -513,7 +514,7 @@ input[class="submit"] {
     border-radius: 35%;
     padding: 5px;
     background-color: #fff;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.6s ease;
     position: relative;
 }
 
@@ -535,9 +536,9 @@ input[class="submit"] {
     inset: 0;
     border-radius: 35%;
     z-index: 0;
-    background: linear-gradient(#405DE6, #C13584, #F56040, #FCAF45);
+    background: linear-gradient(#833ab4, #fd1d1d, #f56040, #fcaf45);
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.6s ease;
 }
 
 .card--instagram:hover::after {
@@ -568,8 +569,8 @@ input[class="submit"] {
     border: none;
 }
 
-.foot-input-email:focus-visible{
-    border: 1px solid #f80;
+.foot-input-email:focus-visible, .foot-input-submit:active{
+    outline: 2px solid #f80;
 }
 
 .foot-input-email::placeholder {
@@ -584,10 +585,6 @@ input[class="submit"] {
     letter-spacing: 2px;
     font-size: 1rem;
     transition: color 0.3s ease;
-}
-
-.foot-label-terms , .foot-link-terms, .label-terms , .link-terms{
-    transition: color 0.2s ease;
 }
 
 .foot-input-submit:hover, .foot-label-terms:hover, .label-terms:hover {
@@ -926,6 +923,12 @@ input[class="submit"] {
             "social"
             "notificaciones"
         ;
+        gap: 30px;
+    }
+
+    .container--social{
+        max-width: 100%;
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .foot--enlaces {
